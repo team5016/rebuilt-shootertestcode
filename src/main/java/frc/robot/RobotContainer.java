@@ -23,6 +23,7 @@ import frc.robot.subsystems.*;;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final Swerve swerveDrivetrain = new Swerve();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final TurretSubsystem m_TurretSubsystem = new TurretSubsystem();
   private final IndexingSubsystem m_IndexingSubsystem = new IndexingSubsystem();
@@ -36,6 +37,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
+
     configureBindings();
   }
 
@@ -49,6 +51,8 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+    swerveDrivetrain.configureBindings(m_driverController);
+
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
