@@ -80,6 +80,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    System.out.println(m_robotContainer.turretSubsystem().getDistance());
   }
 
   /** This function is called periodically during operator control. */

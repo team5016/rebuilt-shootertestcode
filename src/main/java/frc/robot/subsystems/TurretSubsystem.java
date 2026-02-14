@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.LimelightHelpers;
 import frc.robot.pid;
+import frc.robot.LimelightHelpers.LimelightTarget_Retro;
 
 public class TurretSubsystem extends SubsystemBase{
     private pid pid;
@@ -113,5 +114,9 @@ public class TurretSubsystem extends SubsystemBase{
                 deltaTime = 0;
             }
         ).withName("Reach The Shooting Speed With PID");
+    }
+
+    public double getDistance(){
+        return 47.858586*Math.pow(LimelightHelpers.getTA(getName()),-0.495803); 
     }
 }
